@@ -69,12 +69,12 @@
 								},
 								handler: function(event) {
 									if (event.detail) {
-										if (event.detail['65']) { // we are mapping marker #64 to this projection
+										if (event.detail['64']) { // we are mapping marker #64 to this projection
 											awe.pois.update({
 												data: {
 													visible: true,
                           							position: { x:0, y:0, z:0 },
-													matrix: event.detail['65'].transform
+													matrix: event.detail['64'].transform
 												},
 												where: {
 													id: 'poi_1'
