@@ -50,12 +50,16 @@
 							awe.setup_scene();			
 					        awe.pois.add({ id:'poi_1', position: { x:0, y:0, z:10000 }, visible: false });
 					        awe.projections.add({ 
-					          id:'projection_1', 
-								geometry: { shape: 'text', x:100, y:100},
-			          			material:{ color: 0xffffff, opacity: 0.5, transparent: true  }, 
-                				texture: { path: 'qq-build.png' },
+					            id:'projection_1', 
+								geometry: { shape: 'text', {
+									funt：'undefined',
+									size:20
+
+								} },
+			          			material:{ type: 'phong', color: 0xFFFFFF }, 
+                				texture: { path: 'awe_by_buildAR.png' },
 			        		}, { poi_id: 'poi_1' });
-			        		awe.events.add([{
+			        		    awe.events.add([{
 								id: 'ar_tracking_marker',
 								device_types: {
 									pc: 1,
