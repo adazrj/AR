@@ -44,7 +44,7 @@
           {
             id: 'point_light',
             type: 'point',
-            color: 0xFFFFFF
+            color: 0xFFFFFF 
           },
         ],
       },
@@ -70,11 +70,19 @@
 		       // add some points of interest (poi) for each of the compass points
 		        awe.pois.add({ id:'north', position: { x:0, y:0, z:200 } });
 		        // add projections to each of the pois
-		        awe.projections.add({ 
+		        // awe.projections.add({ 
+		        //   id:'n', 
+		        //   geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+          //         rotation:{ x:30, y:30, z:0 },
+		        //   material:{ 
+		        //     type: 'phong',
+		        //     color:0x0000FF, 
+		        //   },
+		        // }, { poi_id: 'north' });
+				awe.projections.add({ 
 		          id:'n', 
-		          geometry:{ shape:'cube', x:50, y:50, z:50 }, 
-                  rotation:{ x:30, y:30, z:0 },
-		          material:{ 
+		          geometry:{ text:'cube', font:'undefined',size:20,fontWeight:'bold'}, 
+                  material:{ 
 		            type: 'phong',
 		            color:0x0000FF, 
 		          },
