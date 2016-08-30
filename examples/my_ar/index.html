@@ -51,10 +51,12 @@
 					        awe.pois.add({ id:'poi_1', position: { x:0, y:0, z:10000 }, visible: false });
 					        awe.projections.add({ 
 					            id:'projection_1', 
-								geometry: {text: 'hello',parameters:{funt:'undefined',
+								geometry: {text: 'hello',parameters:{font:'undefined',
 									size:20,
 									fontWeight:'bold'}
-								}
+								},
+			          			material:{ color: 0x000000 } 
+                				
 			        		}, { poi_id: 'poi_1' });
 			        		    awe.events.add([{
 								id: 'ar_tracking_marker',
