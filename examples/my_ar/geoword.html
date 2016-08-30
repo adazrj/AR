@@ -72,19 +72,17 @@
 			        window.awe.setup_scene();
 
 			       
-			        awe.pois.add({ id:'north_east', position: { x:100, y:100, z:100 } });
+			        awe.pois.add({ id:'north_east', position: { x:200, y:0, z:200 } });
 			      
 					// setup and paint the scene
 			        window.awe.setup_scene();
 
 			        awe.projections.add({ 
 			          id:'ne', 
-			          geometry:{ text:'helloword', font:'undefined',
-									size:20,
-									fontWeight:'bold'}, 
+			          geometry:{ text:'helloword', radius:10 }, 
 			          material:{ 
 			            type: 'phong',
-			            color:0xCCCCCC, 
+			            color:0xffffff, 
 			          },
 			        }, { poi_id: 'north_east' });			
             },
