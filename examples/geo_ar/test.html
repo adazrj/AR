@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AWE GEO AR demo</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<meta charset="utf-8"/>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+#container {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+}
+</style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript" src="../../js/awe-loader-min.js"></script>
+<script type="text/javascript">
+  window.addEventListener('load', function() {
+    // initialize awe after page loads
+    window.awe.init({
+      // automatically detect the device type
+      device_type: awe.AUTO_DETECT_DEVICE_TYPE,
+      // populate some default settings
+      settings: {
+      	container_id: 'container',
+        fps: 30,
+        default_camera_position: { x:0, y:0, z:0 },
+        default_lights:[
+          {
+            id: 'point_light',
+            type: 'point',
+            color: 0xFFFFFF
+          },
+        ],
+      },
+      ready: function() {
+        // load js files based on capability detection then setup the scene if successful
+        awe.util.require([
+          {
+            capabilities: ['gum','gyro','webgl'],
+            files: [ 
+              [ '../../js/awe-standard-dependencies.js', '../../js/awe-standard.js' ], // core dependencies for this app 
+              '../../js/awe-standard-window_resized.js', // window resize handling plugin
+              '../../js/awe-standard-object_clicked.js', // object click/tap handling plugin
+              'awe.geo_ar.js', // geo ar plugin
+            ],
+            success: function() { 
+               alert(1);
+            },
+          },
+          { // else create a fallback
+            capabilities: [],
+            files: [],
+            success: function() { 
+              document.body.innerHTML = '<p>This demo currently requires a standards compliant mobile browser (e.g. Firefox on Android). NOTE: iOS does not currently support WebGL or WebRTC and has not implemented the DeviceOrientation API correctly. Please see <a href="http://lists.w3.org/Archives/Public/public-geolocation/2014Jan/0000.html">this post to the W3C GeoLocation Working Group</a> for more detailed information.</p>';
+              return;
+            },
+          },
+        ]);
+      }
+    });
+  });
+</script>
+</body>
+</html>
