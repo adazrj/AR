@@ -53,36 +53,25 @@
               'awe.geo_ar.js', // geo ar plugin
             ],
             success: function() { 
-              // limit demo to supported devices
-              // NOTE: only Chrome and Firefox has implemented the DeviceOrientation API in a workable way
-              //       so for now we are excluding all others to make sure your first experience is a happy one
-              var device_type = awe.device_type();
-              var browser_unsupported = false;
-              if (device_type != 'android') {
-                browser_unsupported = true;
-              } else if (!navigator.userAgent.match(/chrome|firefox/i)) {
-                browser_unsupported = true;
-              }
-              if (browser_unsupported) {
-                document.body.innerHTML = '<p>This demo currently requires a standards compliant Android browser (e.g. Chrome M33).</p>';
-                return;
-              }
+              
 
-              // setup and paint the scene
-			        window.awe.setup_scene();
-			
-        
-			       
-			        awe.pois.add({ id:'north_east', position: { x:200, y:0, z:200 } });
-			        awe.projections.add({ 
-			          id:'ne', 
-			          geometry:{ shape:'sphere', radius:10 }, 
-			          material:{ 
-			            type: 'phong',
-			            color:0xCCCCCC, 
-			          },
-			        }, { poi_id: 'north_east' });
- 
+	      		// setup and paint the scene
+		        window.awe.setup_scene();
+		
+
+		       
+		       // add some points of interest (poi) for each of the compass points
+		        awe.pois.add({ id:'north', position: { x:0, y:0, z:200 } });
+		        // add projections to each of the pois
+		        awe.projections.add({ 
+		          id:'n', 
+		          geometry:{ shape:'cube', x:50, y:50, z:50 }, 
+                  rotation:{ x:30, y:30, z:0 },
+		          material:{ 
+		            type: 'phong',
+		            color:0x0000FF, 
+		          },
+		        }, { poi_id: 'north' });
 			
             },
           },
