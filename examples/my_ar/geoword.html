@@ -82,10 +82,11 @@
 				 awe.projections.add({ 
 		          id:'n', 
 		          geometry: {text: 'hello',parameters:{font:'undefined',
-                  size:20,
-                  fontWeight:'bold'}
+                  size: 80,
+          height: 20,
+          curveSegments: 2}
                 },
-              material: { color:0xFF0000}
+              material: {color: Math.random() * 0xffffff, overdraw: 0.5 }
 
 		        }, { poi_id: 'north' });
 			
