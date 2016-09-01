@@ -23,7 +23,12 @@
 
 		<script src="threejs/stats.min.js"></script>
 
+		<script type="text/javascript">
+			if(!window.location.search) {
+		     		window.location = window.location.href+'?r='+Math.random();
+		    	}
 
+		</script>
 		<script>
 
 			var container, stats;
@@ -82,7 +87,7 @@
 				var geometry = new THREE.TextGeometry( theText, {
 
 					font: font,
-					size: 30,
+					size: 80,
 					height: 20,
 					curveSegments: 2
 
