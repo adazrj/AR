@@ -79,20 +79,16 @@
 		        //     color:0x0000FF, 
 		        //   },
 		        // }, { poi_id: 'north' });
-            var geometry = new THREE.TextGeometry( 'theText', {
-
-              font: 'undefined',
-              size: 80,
-              height: 20,
-              curveSegments: 2
-
-            });
-
+           
 
 				    awe.projections.add({ 
 		          id:'n', 
-		          geometry: geometry,
-              material: {type: 'phong',color: '#ffffff', overdraw: 0.5 }
+		          geometry: {shape:'text',text:'hello word!', {font:'undefined',
+                  size: 80,
+                  height: 20,
+                  curveSegments: 2}
+                },
+              material: {color: '#ffffff', overdraw: 0.5 }
 
 		        }, { poi_id: 'north' });
 			
